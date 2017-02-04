@@ -13,91 +13,95 @@ It's recommended that the student uses https://regex101.com/ when attempting to 
 Provide three regexes that matches `yes yes yes` but not `no no no`
 
 ```c#
-answer:
+answer:  	[a-z][a-z][a-z]\s[a-z][a-z][a-z]\s[a-z][a-z][a-z]
+			(\w\w\w)\s(\w\w\w)\s(\w\w\w)
+			(yes)\s(yes)\s(yes)
 
 ```
 
 Provide a regex that matches valid phone numbers with the forms `678-123-1122` and `(678) 123-1122` while still allowing symbols to be optional. HINT: Research the rules around valid phone numbers.
 
 ```c#
-answer:
+answer:     \(?\d\d\d\)?\s?\-?\d\d\d\-?\d\d\d\d
 
 ```
 
 Provide a regex that matches URLs like `https://regex101.com`, `http://facebook.com` and `https://www.godaddy.com` but not `https://msdn.microsoft.com`. (Trailing `/` should be allowed and optional)
 
 ```c#
-answer:
+answer:		https:\/\/(www.)?(\w+).com\/*
 
 ```
 
 Provide a regex that matches dates with the format: `Wed Aug 11, 2013`.
 
 ```c#
-answer:
+answer:		[A-Z]\w\w\s[A-Z]\w\w\s\d\d,\s\d\d\d\d
 
 ```
 
 Provide a regex that matches dates with the format: `MM/DD/YYYY`. Use named captures to extract Day, Month and Year.
 
 ```c#
-answer:
+answer:		(?<month>\d\d)\/(?<day>\d\d)\/(?<year>\d\d\d\d)
 
 ```
 
 Provide a regex that matches `function returnOne() {return 1;}` and captures the value returned.
 
 ```c#
-answer:
+answer:		\w+\s\w+\(\)\s\{\w+\s(\w+);\}
 
 ```
 
 Provide a regex that matches `List<int> my_List = new List<int>();` and captures the variable name.
 
 ```c#
-answer:
+answer:		\w+\<\w+\>\s(\w+)\s*\=\s*\w+\s\w+\<\w+\>\(\);
 
 ```
 
 Provide two regeesx that matches `Billy Jean` but not `billy jean`.
 
 ```c#
-answer:
+answer:		[A-Z]\w+\s[A-Z]\w+
+			[B]\w+\s[J]\w+
 
 ```
 
 Provide two regexes that matches `NSS Evening Cohort 3` and captures "Cohort 3".
 
 ```c#
-answer:
+answer:		\w+\s\w+\s(\w+\s\d)
+			\w+\s\w+\s(\w+..)
 
 ```
 
 Provide a regex that matches emails of the forms `first.last@example.com` and `something99@history.com`. Allow for numbers in the domain name as well as the email prefix. Capture the domain name.
 
 ```c#
-answer:
+answer:		\w*\.?\w*\@\w*\.(com)
 
 ```
 
 Provide a regex (as if for a password checker), that enforces a password to have at least one symbol and one number.
 
 ```c#
-answer:
+answer:		^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!$%@#£€*?&]{3,}$
 
 ```
 
 Provide a regex that matches emails from the domains `.com`, `.org`, `.net`, `.io` and `.ly` but not `.biz` and `.com.uk`. This regex should capture the end result. (use #10 as a starting point).
 
 ```c#
-answer:
+answer:		\w*\.?\w*\@\w*\.(com|org|net|io|ly)
 
 ```
 
 Provide a regex that matches the entire [2nd paragraph of the Wikipedia page about John Lennon](https://en.wikipedia.org/wiki/John_Lennon).
 
 ```c#
-answer:
+answer:		[^]+
 
 ```
 
@@ -119,6 +123,7 @@ public class Part
 ```
 
 ```c#
-answer:
+answer:		\w+\s\w+\s\w+\n\{\n\s*\w+\s\w+\s(\w+)\s*\{.*?\}\n\s*\w+\s\w+\s(\w+)\s\{.*?\}\n\}
+			(?!\w+\s*\{\n)\w+(?=\s*\{)
 
 ```
